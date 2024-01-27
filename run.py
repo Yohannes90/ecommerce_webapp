@@ -1,4 +1,4 @@
-from shop import app
+from flask_shop import app
 
 
 if __name__ == "__main__":
