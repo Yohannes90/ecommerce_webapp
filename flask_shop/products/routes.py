@@ -15,6 +15,19 @@ def addbrand():
         return redirect(url_for(addbrand))
     return render_template('products/addbrand.html', brands='brands')
 
+@app.route('/updatecat', methods=['GET', 'POST'])
+def updatecat(id):
+    if email not in session:
+        flash(f'Please login first', 'danger')
+
+        updatecat =  request.form.get('category')
+        category = Brand(name=getcategory)
+        db.session.add(category)
+        db.session.commit()
+        flash(f'The brand {getcategory} have been added', 'success')
+        return redirect(url_for(addcategory))
+    return render_template('products/addbrand.html')
+
 @app.route('/addcategory', methods=['GET', 'POST'])
 def addcategory():
     if request.method == "POST":
